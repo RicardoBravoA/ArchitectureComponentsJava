@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.rba.architecturecomponentsjava.database.entity.User;
+import com.rba.architecturecomponentsjava.repository.UserRepository;
 
 import javax.inject.Inject;
 

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
-    private final static String USER_LOGIN = "JakeWharton";
+    private static final String USER_LOGIN = "JakeWharton";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
         setSupportActionBar(toolbar);
 
-        this.configureDagger();
-        this.showFragment(savedInstanceState);
+        AndroidInjection.inject(this);
+        showFragment(savedInstanceState);
 
     }
 
@@ -56,10 +56,5 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
                     .commit();
         }
     }
-
-    private void configureDagger() {
-        AndroidInjection.inject(this);
-    }
-
 
 }

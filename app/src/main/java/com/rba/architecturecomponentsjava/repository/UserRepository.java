@@ -1,4 +1,4 @@
-package com.rba.architecturecomponentsjava.user;
+package com.rba.architecturecomponentsjava.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.util.Log;
@@ -65,8 +65,6 @@ public class UserRepository {
             }
         });
     }
-
-    // ---
 
     private Date getMaxRefreshTime(Date currentDate) {
         Calendar cal = Calendar.getInstance();

@@ -1,28 +1,28 @@
-package com.rba.architecturecomponentsjava.user;
+package com.rba.architecturecomponentsjava.github;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.rba.architecturecomponentsjava.database.entity.User;
-import com.rba.architecturecomponentsjava.repository.UserRepository;
+import com.rba.architecturecomponentsjava.repository.GithubRepository;
 
 import javax.inject.Inject;
 
-public class UserViewModel extends ViewModel {
+public class GithubViewModel extends ViewModel {
 
     private LiveData<User> user;
-    private UserRepository userRepository;
+    private GithubRepository githubRepository;
 
     @Inject
-    public UserViewModel(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public GithubViewModel(GithubRepository githubRepository) {
+        this.githubRepository = githubRepository;
     }
 
     public void init(String userId) {
         if (this.user != null) {
             return;
         }
-        user = userRepository.getUser(userId);
+        user = githubRepository.getUser(userId);
     }
 
     public LiveData<User> getUser() {
