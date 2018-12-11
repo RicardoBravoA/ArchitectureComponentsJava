@@ -5,8 +5,10 @@ import android.arch.persistence.room.Room;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.rba.architecturecomponentsjava.api.UserWebService;
 import com.rba.architecturecomponentsjava.database.GithubDatabase;
 import com.rba.architecturecomponentsjava.database.dao.UserDao;
+import com.rba.architecturecomponentsjava.user.UserRepository;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -40,15 +42,13 @@ public class AppModule {
         return Executors.newSingleThreadExecutor();
     }
 
-    /*
     @Provides
     @Singleton
     UserRepository provideUserRepository(UserWebService webservice, UserDao userDao, Executor executor) {
         return new UserRepository(webservice, userDao, executor);
     }
-    */
 
-    private final static String BASE_URL = "https://api.github.com/";
+    private static final String BASE_URL = "https://api.github.com/";
 
     @Provides
     Gson provideGson() {
@@ -63,12 +63,10 @@ public class AppModule {
                 .build();
     }
 
-    /*
     @Provides
     @Singleton
     UserWebService provideApiWebservice(Retrofit restAdapter) {
         return restAdapter.create(UserWebService.class);
     }
-    */
 
 }
