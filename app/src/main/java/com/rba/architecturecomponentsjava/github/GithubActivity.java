@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.rba.architecturecomponentsjava.R;
 import com.rba.architecturecomponentsjava.database.entity.User;
-import com.rba.architecturecomponentsjava.user.UserProfileViewModel;
 
 import javax.inject.Inject;
 
@@ -50,8 +49,8 @@ public class GithubActivity extends AppCompatActivity {
     }
 
     private void init() {
-        UserProfileViewModel viewModel =
-                ViewModelProviders.of(this, viewModelFactory).get(UserProfileViewModel.class);
+        GithubViewModel viewModel =
+                ViewModelProviders.of(this, viewModelFactory).get(GithubViewModel.class);
         viewModel.init(USER_LOGIN);
         viewModel.getUser().observe(this, this::updateUI);
     }

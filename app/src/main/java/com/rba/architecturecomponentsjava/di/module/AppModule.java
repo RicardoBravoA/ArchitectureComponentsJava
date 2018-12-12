@@ -22,7 +22,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@Module(includes = ViewModelModule.class)
+@Module(includes = GithubViewModelModule.class)
 public class AppModule {
 
     @Provides
